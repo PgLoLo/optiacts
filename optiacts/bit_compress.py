@@ -4,7 +4,7 @@ import torch as t
 
 @t.compile
 def to_bool_tensor(data, shape) -> t.Tensor:
-    result = ((data[:, None] >> t.arange(8, device=data.device, dtype=t.uint8)) & 1).bool()
+    result = ((data[:, None] >> t.arange(8, device=data.device, dtype=t.uint8)) & 1).bool().view(-1)
     numel = np.prod(shape)
     if result.numel() != numel:
         result = result[:numel]
