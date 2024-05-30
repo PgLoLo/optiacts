@@ -34,10 +34,10 @@ We implemented drop-in replacements for `torch.nn.GELU` and `torch.nn.SiLU` laye
 
 ```python
 import optiacts
-optiacts.GELU()
-optiacts.SiLU()
-optiacts.gelu
-optiacts.silu
+optiacts.GELU()  # torch.nn.Module
+optiacts.SiLU()  # torch.nn.Module
+optiacts.gelu    # function
+optiacts.silu    # function
 ```
 
 You can use them inside your `torch.nn.Module`-s as usual, or replace in already constructed networks. Here is, for example, how to create a Hugging Face BERT model and replace activation functions there:
